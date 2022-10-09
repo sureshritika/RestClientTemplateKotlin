@@ -37,7 +37,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src="SimpleTweetGIF2.gif" width=25% height=25%><br>
+<img src="SimpleTweetGIF.gif" width=25% height=25%><br>
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -102,8 +102,6 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 <img src="SimpleTweetGIF.gif" width=25% height=25%><br>
-
-<img src="SimpleTweetGIF2.gif" width=25% height=25%><br>
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
