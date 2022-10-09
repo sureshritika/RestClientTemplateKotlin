@@ -39,4 +39,18 @@
         android:layout_gravity="bottom|center_vertical"
         android:visibility="gone" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/id_composeFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        app:layout_anchor="@id/id_tweetsRV"
+        app:layout_anchorGravity="bottom|right|end"
+        android:backgroundTint="@color/twitter_blue"
+        android:src="@drawable/ic_plus"
+
+        />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

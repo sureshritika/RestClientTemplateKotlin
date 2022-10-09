@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/id_snackbarLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="10dp">
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <RelativeLayout
+        android:id="@+id/id_userLayout"
+        android:layout_below="@id/id_snackbarLayout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/id_profileImage"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/id_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/id_profileImage"
+            android:text="Ritika Suresh"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/id_verified"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/id_name"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/id_name" />
+
+        <TextView
+            android:id="@+id/id_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/id_name"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/id_profileImage"
+            android:text="RitikaSuresh" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/id_composeEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_userLayout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="What's happening?"
+        android:inputType="textMultiLine"
+        android:minLines="5" />
+
+    <TextView
+        android:id="@+id/id_tweetCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_composeEdit"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:text="0/280" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/id_composeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/id_tweetCount"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/twitter_blue"
+        android:text="Tweet"
+        app:cornerRadius="50dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/id_cancelBtn"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/id_tweetCount"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/white"
+        android:text="Cancel"
+        android:textColor="@color/twitter_blue"
+        app:cornerRadius="500dp"
+        app:strokeColor="@color/twitter_blue"
+        app:strokeWidth="1dp" />
+</RelativeLayout>

@@ -14,7 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestClientTemplateKotlin">
         <activity
+            android:name=".ComposeActivity"
+            android:exported="false" />
+        <activity
             android:name=".TweetDetails"
+            android:exported="false" />
+        <activity
+            android:name=".CommentLayout"
             android:exported="false" />
         <activity
             android:name=".TimelineActivity"

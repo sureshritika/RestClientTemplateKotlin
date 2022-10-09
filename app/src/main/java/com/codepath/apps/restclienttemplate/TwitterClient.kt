@@ -1,6 +1,7 @@
 package com.codepath.apps.restclienttemplate
 
 import android.content.Context
+import android.util.Log
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.codepath.oauth.OAuthBaseClient
@@ -57,14 +58,55 @@ class TwitterClient(context: Context) : OAuthBaseClient(
         params.put("count", count)
         params.put("since_id", 1)
         params.put("include_entities " , true)
+        params.put("tweet_mode " , "extended")
         client.get(apiUrl, params, handler)
     }
 
     fun getNextPageOfTweets(handler: JsonHttpResponseHandler, maxId: Long) {
         val apiUrl = getApiUrl("statuses/home_timeline.json")
         val params = RequestParams()
-        params.put("count", "5")
+        params.put("count", "10")
         params.put("max_id", maxId)
         client.get(apiUrl, params, handler)
+    }
+
+    fun publishTweet(handler : JsonHttpResponseHandler , tweetContent : String) {
+        val apiUrl = getApiUrl("statuses/update.json")
+        val params = RequestParams()
+        params.put("status" , tweetContent)
+        client.post(apiUrl, params, "" , handler)
+    }
+
+    fun getMe(handler : JsonHttpResponseHandler) {
+        val apiUrl = getApiUrl("account/verify_credentials.json")
+        client.get(apiUrl , null , handler)
+    }
+
+    fun likeTweet(handler : JsonHttpResponseHandler , id : Long) {
+        val apiUrl = getApiUrl("favorites/create.json")
+        val params = RequestParams()
+        params.put("id" , id)
+        client.post(apiUrl , params , "" , handler)
+    }
+
+    fun unlikeTweet(handler : JsonHttpResponseHandler , id : Long) {
+        val apiUrl = getApiUrl("favorites/destroy.json")
+        val params = RequestParams()
+        params.put("id" , id)
+        client.post(apiUrl , params , "" , handler)
+    }
+
+    fun reply(handler : JsonHttpResponseHandler , replyContent : String , id : Long) {
+        val apiUrl = getApiUrl("statuses/update.json")
+        val params = RequestParams()
+        params.put("status" , replyContent)
+        params.put("in_reply_to_status_id" , id)
+        Log.d("RITIKA" , "in_reply_to_status_id $id")
+        client.post(apiUrl , params , "" , handler)
+    }
+
+    fun retweet(handler : JsonHttpResponseHandler , id : Long , replyContent : String) {
+        val apiUrl = getApiUrl("statuses/retweet/$id.json")
+        client.post(apiUrl , null , "" , handler)
     }
 }

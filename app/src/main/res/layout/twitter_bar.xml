@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<androidx.appcompat.widget.Toolbar
     android:id="@+id/id_twitterLayout"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
@@ -12,7 +12,9 @@
         android:id="@+id/id_twitterLogo"
         android:layout_width="?attr/actionBarSize"
         android:layout_height="?attr/actionBarSize"
-        android:layout_centerInParent="true"
+        android:clickable="true"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/twitter_logo" />
-</RelativeLayout>
+
+</androidx.appcompat.widget.Toolbar>
 

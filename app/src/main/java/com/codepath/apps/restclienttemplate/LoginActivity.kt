@@ -52,6 +52,7 @@ class LoginActivity : OAuthLoginActionBarActivity<TwitterClient>() {
     // Uses the client to initiate OAuth authorization
     // This should be tied to a button used to login
     fun loginToRest(view: View?) {
+        Log.d("RITIKA" , "clicked login button")
         client.connect()
     }
 }

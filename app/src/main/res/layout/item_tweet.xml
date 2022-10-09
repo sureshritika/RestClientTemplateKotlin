@@ -6,6 +6,7 @@
     android:id="@+id/id_item_tweet"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
     android:descendantFocusability="blocksDescendants" >
 
     <ImageView
@@ -16,7 +17,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_centerVertical="true"
-        android:layout_margin="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <RelativeLayout
@@ -28,7 +32,6 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
         android:weightSum="5"
         android:layout_toEndOf="@id/id_profileImage">
 
@@ -85,18 +88,28 @@
 
     </RelativeLayout>
 
-    <com.codepath.apps.restclienttemplate.models.LinkifyTextView
-        android:id="@+id/id_tweetBody"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/id_replyingToText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/id_userLayout"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@+id/id_profileImage"
+        android:visibility="gone" />
+
+    <com.codepath.apps.restclienttemplate.models.LinkifyTextView
+        android:id="@+id/id_tweetBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/id_replyingToText"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:layout_toEndOf="@+id/id_profileImage"
         android:text="This is a really really really really long tweet from noone" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -105,32 +118,24 @@
         android:layout_below="@id/id_tweetBody"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@id/id_profileImage"
-        android:layout_margin="5dp"
-        android:paddingEnd="50dp">
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp">
 
         <LinearLayout
-            android:id="@+id/id_comments"
+            android:id="@+id/id_replies"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="horizontal">
 
-
             <ImageButton
-                android:id="@+id/id_commentBtn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/id_replyBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@color/white"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/comment" />
-
-            <TextView
-                android:id="@+id/id_commentTxt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:text="20" />
+                android:focusable="true"
+                android:src="@drawable/comment" />
         </LinearLayout>
 
         <LinearLayout
@@ -142,19 +147,30 @@
 
             <ImageButton
                 android:id="@+id/id_retweetBtn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@color/white"
-                android:layout_weight="1"
+                android:layout_marginEnd="10dp"
                 app:srcCompat="@drawable/retweet" />
 
-            <TextView
-                android:id="@+id/id_retweetTxt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:text="30" />
+            <TextSwitcher
+                android:id="@+id/id_retweetSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:inAnimation="@anim/slide_in_down"
+                android:outAnimation="@anim/slide_out_up"
+                android:layout_gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="30" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="30" />
+            </TextSwitcher>
         </LinearLayout>
 
         <LinearLayout
@@ -166,34 +182,31 @@
 
             <ImageButton
                 android:id="@+id/id_likeBtn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
                 android:background="@color/white"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/like" />
+                android:focusable="true"
+                android:src="@drawable/like" />
 
-            <TextView
-                android:id="@+id/id_likeTxt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:text="40" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/id_share"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/id_shareBtn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/share" />
+            <TextSwitcher
+                android:id="@+id/id_likeSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:inAnimation="@anim/slide_in_down"
+                android:outAnimation="@anim/slide_out_up"
+                android:layout_gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="40" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="40" />
+            </TextSwitcher>
 
         </LinearLayout>
     </LinearLayout>
