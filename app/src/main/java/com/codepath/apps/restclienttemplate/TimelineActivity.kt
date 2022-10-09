@@ -46,7 +46,7 @@ class TimelineActivity : AppCompatActivity() {
 
     val tweets = ArrayList<Tweet>()
     var maxId : Long = Long.MAX_VALUE
-    var count : Int = 10
+    var count : Int = 20
     var tweetContent : String = ""
     lateinit var me : User
 
