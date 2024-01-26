@@ -1,4 +1,5 @@
 # Project 2 - *Simple Tweet*
+Android App using Kotlin
 
 ## Part 2
 
