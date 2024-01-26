@@ -1,8 +1,8 @@
 # Project 2 - *Simple Tweet*
 
-## Part 2
+**Simple Tweet** is an Android app using Kotlin that allows a user to view his Twitter timeline and post a new tweet. The app utilizes [Twitter REST API](https://dev.twitter.com/rest/public).
 
-**Simple Tweet** is an android app using Kotlin that allows a user to view his Twitter timeline and post a new tweet. The app utilizes [Twitter REST API](https://dev.twitter.com/rest/public).
+## Part 2
 
 Time spent: **12** hours spent in total
 
@@ -67,8 +67,6 @@ While the first part was mainly focues on learning how to use the Twitter API, I
     limitations under the License.
 
 ## Part 1
-
-**Simple Tweet** is an android app using Kotlin that allows a user to view his Twitter timeline. The app utilizes [Twitter REST API](https://dev.twitter.com/rest/public).
 
 Time spent: **12** hours spent in total
 
